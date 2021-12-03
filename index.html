@@ -1,10 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Sergey Stroganoff">
+    <meta name="description" content="Бланк счета">
     <title>DBO</title>
+    <link rel="stylesheet" href="bill.css">
+    <link rel="stylesheet" href="table.css">
 </head>
 <body>
 
+<div class="document-grid">
+    <div class="div1">
+        <p>Моя выписка</p>
+    </div>
+    <div class="div2">
+        <img src="images/avatar_small.png" alt="Avatar" title="Sergey Stroganoff">
+    </div>
+    <div class="div2-1">
+        <p>Sergey Stroganoff</p>
+    </div>
+
+    <div class="div3">
+        <input onclick="simple()" type="checkbox" class="data-checkbox" id="checkBox1" name="data" value="data">
+        <label for=checkBox1>Дата</label>
+    </div>
+    <div class="div4">
+        <input type="checkbox" class="time-checkbox" id="checkBox2" name="time" value="time">
+        <label for=checkBox2>Время</label>
+    </div>
+    <div class="div5">
+        <input type="checkbox" class="type-checkbox" id="checkBox3" name="type" value="type">
+        <label for=checkBox3>Тип</label>
+    </div>
+    <div class="div6">
+        <input type="checkbox" class="type-checkbox" id="checkBox4" name="arrival" value="arrival">
+        <label for=checkBox4>Приход</label>
+    </div>
+    <div class="div7">
+        <input type="checkbox" class="type-checkbox" id="checkBox5" name="spending" value="spending">
+        <label for=checkBox5>Расход</label>
+    </div>
+    <div class="div8">
+        <p>Группировка</p>
+    </div>
+    <div class="div9">
+        <label for="selector"></label>
+        <select id = "selector">
+                <option value="no_grouped">Без группировки</option>
+                <option value="groupedByData">По дате</option>
+            </select>
+    </div>
+
+
+
+    <div class="div10">
+        <div class="table">
+            <table>
+                <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Время</th>
+                    <th>Тип</th>
+                    <th>Приход</th>
+                    <th>Расход</th>
+                </tr>
+                </thead>
+            </table>
+            <div class="table-body">
+                <table>
+                    <tbody id="mainTablePart">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="div11"></div>
+    <div class="div12">
+        <p>@ Мой Банк</p>
+    </div>
+</div>
+<script src=my-statement-data.js></script>
+<script src=main.js></script>
 </body>
 </html>
