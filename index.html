@@ -22,23 +22,23 @@
     </div>
 
     <div class="div3">
-        <input onclick="simple()" type="checkbox" class="data-checkbox" id="checkBox1" name="data" value="data">
+        <input type="checkbox" class="data-checkbox" id="checkBox1" name="data" value="data" checked="checked">
         <label for=checkBox1>Дата</label>
     </div>
     <div class="div4">
-        <input type="checkbox" class="time-checkbox" id="checkBox2" name="time" value="time">
+        <input type="checkbox" class="time-checkbox" id="checkBox2" name="time" value="time" checked="checked">
         <label for=checkBox2>Время</label>
     </div>
     <div class="div5">
-        <input type="checkbox" class="type-checkbox" id="checkBox3" name="type" value="type">
+        <input type="checkbox" class="type-checkbox" id="checkBox3" name="type" value="type" checked="checked">
         <label for=checkBox3>Тип</label>
     </div>
     <div class="div6">
-        <input type="checkbox" class="type-checkbox" id="checkBox4" name="arrival" value="arrival">
+        <input type="checkbox" class="arrival-checkbox" id="checkBox4" name="arrival" value="arrival" checked="checked">
         <label for=checkBox4>Приход</label>
     </div>
     <div class="div7">
-        <input type="checkbox" class="type-checkbox" id="checkBox5" name="spending" value="spending">
+        <input type="checkbox" class="spending-checkbox" id="checkBox5" name="spending" value="spending" checked="checked">
         <label for=checkBox5>Расход</label>
     </div>
     <div class="div8">
@@ -46,12 +46,11 @@
     </div>
     <div class="div9">
         <label for="selector"></label>
-        <select id = "selector">
-                <option value="no_grouped">Без группировки</option>
-                <option value="groupedByData">По дате</option>
-            </select>
+        <select id="selector">
+            <option value="no_grouped">Без группировки</option>
+            <option value="groupedByData">По дате</option>
+        </select>
     </div>
-
 
 
     <div class="div10">
@@ -59,11 +58,11 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Дата</th>
-                    <th>Время</th>
-                    <th>Тип</th>
-                    <th>Приход</th>
-                    <th>Расход</th>
+                    <th class="row0">Дата</th>
+                    <th class="row1">Время</th>
+                    <th class="row2">Тип</th>
+                    <th class="row3">Приход</th>
+                    <th class="row4">Расход</th>
                 </tr>
                 </thead>
             </table>
@@ -85,3 +84,4 @@
 <script src=main.js></script>
 </body>
 </html>
+

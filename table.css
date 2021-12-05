@@ -1,14 +1,15 @@
 .table-body {
     height: 400px;
-    margin-top: 0px;
     margin-bottom: 20px;
     border: 1px solid #eee;
     overflow:auto;
 }
 .table table {
     width:100%;
+    border: 1px solid #eee;
+    border-collapse: collapse;
     table-layout: fixed;
-    border: red;
+
 }
 .table thead th {
     font-weight: normal;
@@ -30,14 +31,3 @@
     background: #f3f3f3;
 }
 
-/* Стили
-::-webkit-scrollbar {
-    width: 6px;
-}
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
-::-webkit-scrollbar-thumb {
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
-*/
