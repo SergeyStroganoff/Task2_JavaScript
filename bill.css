@@ -126,6 +126,7 @@
 .table-zone {
     grid-area: 5 / 2 / 6 / 7;
     border: solid;
+    height: 435px;
 }
 
 .down-empty-space {

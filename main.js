@@ -1,8 +1,20 @@
+const tbodyElement = document.querySelector('.table-body');
+let numberUncheckedCheckbox = 0;
+let numberDisabledCheckbox = -1;
+const typeCheckbox = document.querySelector('.type-checkbox');
+const timeCheckbox = document.querySelector('.time-checkbox');
+const dataCheckbox = document.querySelector('.data-checkbox');
+const arrivalCheckbox = document.querySelector('.arrival-checkbox');
+const spendingCheckbox = document.querySelector('.spending-checkbox');
+const selector = document.getElementById("selector");
+const optionSelectorGroupedByData = document.querySelector('#grouped');
+const optionSelectorNotGrouped = document.querySelector('#no_grouped');
+const checkBoxArray = [typeCheckbox, timeCheckbox, dataCheckbox, arrivalCheckbox, spendingCheckbox];
+
 myStatementData.sort(function (a, b) {
     return new Date(a.date.toString()) - new Date(b.date.toString())
 });
 
-const tbodyElement = document.querySelector('tbody');
 
 groupedByData = [];
 let data = null;
@@ -98,25 +110,12 @@ function makerGroupedTable() {
 
 buildTableBodyAllRows(buildTableColumns());
 
-let numberUncheckedCheckbox = 0;
-let numberDisabledCheckbox = -1;
-
-const typeCheckbox = document.querySelector('input[value="type"]');
-const timeCheckbox = document.querySelector('input[value="time"]');
-const dataCheckbox = document.querySelector('input[value="data"]');
-const arrivalCheckbox = document.querySelector('input[value="arrival"]');
-const spendingCheckbox = document.querySelector('input[value="spending"]');
-const selector = document.getElementById("selector");
-const optionSelectorGroupedByData = document.querySelector('option[value="groupedByData"]');
-const optionSelectorNotGrouped = document.querySelector('option[value="no_grouped"]');
-let checkBoxArray = [typeCheckbox, timeCheckbox, dataCheckbox, arrivalCheckbox, spendingCheckbox];
-
 
 function changeElementDisplay(elementArray, checkbox) {
     if (!checkbox.checked) {
         selector.disabled = true;
-        for (let elem of elementArray) {
-            elem.style.display = "none";
+        for (let nextElement of elementArray) {
+            nextElement.style.display = "none";
         }
         numberUncheckedCheckbox++;
         if (numberUncheckedCheckbox === 4) {
@@ -128,8 +127,8 @@ function changeElementDisplay(elementArray, checkbox) {
             }
         }
     } else {
-        for (let elem of elementArray) {
-            elem.style.display = "";
+        for (let nextElement of elementArray) {
+            nextElement.style.display = "";
         }
         numberUncheckedCheckbox--;
         if (numberUncheckedCheckbox === 0) {
@@ -149,7 +148,7 @@ function eraseTableBody() {
     }
 }
 
-function transformTable() {
+function makeGroupedTable() {
     let tableRowElements = document.querySelectorAll('.time-row');
     changeDisplayStyleElements(tableRowElements, "none");
     tableRowElements = document.querySelectorAll('.type-row');
@@ -203,11 +202,9 @@ spendingCheckbox.addEventListener('change', () => {
 
 selector.addEventListener('change', () => {
     if (optionSelectorGroupedByData.selected) {
-        transformTable();
-        optionSelectorNotGrouped.selected = false;
+        makeGroupedTable();
     }
     if (optionSelectorNotGrouped.selected) {
         makeFullTable();
-        optionSelectorGroupedByData.selected = false;
     }
 });

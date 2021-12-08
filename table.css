@@ -1,27 +1,28 @@
 
 .table-body {
-    height: 400px;
     margin-bottom: 20px;
     border: 1px solid #eee;
     overflow:auto;
-
 }
 .table table {
-    width:100%;
+    width: 100%;
     border: 1px solid #eee;
     border-collapse: collapse;
     table-layout: fixed;
-
-
+    overflow:auto;
+    height: 435px;
+    display: inline-block;
 }
 .table thead th {
+    width: 400px;
     font-weight: normal;
     text-align: left;
-    border: 1px solid ;
     padding: 10px 15px;
-    background: #d8d8d8;
+    background:#ccd1d9;
     font-size: 16px;
     table-layout: fixed;
+    position: sticky;
+    top: 0;
 }
 .table tbody td {
     text-align: left;

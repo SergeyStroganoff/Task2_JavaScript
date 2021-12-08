@@ -34,7 +34,8 @@
         <label for=checkBox-type-id>Тип</label>
     </div>
     <div class="div-arrival-checkbox">
-        <input type="checkbox" class="arrival-checkbox" id="checkBox-arrival-id" name="arrival" value="arrival" checked="checked">
+        <input type="checkbox" class="arrival-checkbox" id="checkBox-arrival-id" name="arrival" value="arrival"
+               checked="checked">
         <label for=checkBox-arrival-id>Приход</label>
     </div>
     <div class="div-spending-checkbox">
@@ -48,8 +49,8 @@
     <div class="div-grouping-menu">
         <label for="selector"></label>
         <select id="selector">
-            <option value="no_grouped">Без группировки</option>
-            <option value="groupedByData">По дате</option>
+            <option id="no_grouped" value="no_grouped">Без группировки</option>
+            <option id="grouped" value="groupedByData">По дате</option>
         </select>
     </div>
 
@@ -65,13 +66,9 @@
                     <th class="spending-row">Расход</th>
                 </tr>
                 </thead>
+                <tbody class="table-body">
+                </tbody>
             </table>
-            <div class="table-body">
-                <table>
-                    <tbody id="mainTablePart">
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
     <div class="down-empty-space"></div>
