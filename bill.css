@@ -8,46 +8,46 @@
     font: 24px 'Fira Sans', sans-serif;
 }
 
-.div1 {
+.div-main-name {
     grid-area: 1 / 1 / 2 / 5;
     border-bottom-style: solid;
     text-align: left;
 }
 
-.div1 p {
+.div-main-name p {
     margin-left: 5%;
     font: 34px 'Fira Sans', sans-serif;
 }
 
 /* start line, start column, end row line, end column number line */
-.div2 {
+.div-avatar {
     grid-area: 1 / 5 / 2 / 6;
     border-bottom-style: solid;
     text-align: right;
 }
 
-.div2-1 {
+.div-avatar-name {
     grid-area: 1 / 6 / 2 / 8;
     border-bottom-style: solid;
     text-align: left;
 }
 
-.div2-1 p {
+.div-avatar-name p {
     margin-left: 5%;
 }
 
 
-.div2 p {
+.div-avatar p {
     margin-left: 5%;
     display: inline-block;
 }
 
-.div2 img {
+.div-avatar img {
     display: inline-flex;
     margin-left: 5%;
 }
 
-.div3 {
+.div-data-checkbox {
     grid-area: 3 / 2 / 4 / 3;
     text-align: center;
     border-left-style: solid;
@@ -55,44 +55,44 @@
     border-top-style: solid;
 }
 
-.div3 :first-child {
+.div-data-checkbox :first-child {
     margin-top: 5%;
 }
 
-.div4 {
+.div-time-checkbox {
     grid-area: 3 / 3 / 4 / 4;
     text-align: center;
     border-bottom-style: solid;
     border-top-style: solid;
 }
 
-.div4 :first-child {
+.div-time-checkbox :first-child {
     margin-top: 5%;
 }
 
-.div5 {
+.div-type-checkbox {
     grid-area: 3 / 4 / 4 / 5;
     text-align: center;
     border-bottom-style: solid;
     border-top-style: solid;
 }
 
-.div5 :first-child {
+.div-type-checkbox :first-child {
     margin-top: 5%;
 }
 
-.div6 {
+.div-arrival-checkbox {
     grid-area: 3 / 5 / 4 / 6;
     text-align: center;
     border-bottom-style: solid;
     border-top-style: solid;
 }
 
-.div6 :first-child {
+.div-arrival-checkbox :first-child {
     margin-top: 5%;
 }
 
-.div7 {
+.div-spending-checkbox {
     grid-area: 3 / 6 / 4 / 7;
     text-align: center;
     border-right-style: solid;
@@ -100,20 +100,20 @@
     border-top-style: solid;
 }
 
-.div7 :first-child {
+.div-spending-checkbox :first-child {
     margin-top: 5%;
 }
 
-.div8 {
+.div-grouping-label {
     grid-area: 4 / 2 / 5 / 3;
 }
 
 
-.div9 {
+.div-grouping-menu {
     grid-area: 4 / 3 / 5 / 4;
 }
 
-.div9 #selector {
+.div-grouping-menu #selector {
     margin-top: 5%;
     border: solid 1px #517B97;
     outline: 0;
@@ -123,20 +123,20 @@
     font-size: large;
 }
 
-.div10 {
+.table-zone {
     grid-area: 5 / 2 / 6 / 7;
     border: solid;
 }
 
-.div11 {
+.down-empty-space {
     grid-area: 7 / 1 / 8 / 2;
 }
 
-.div12 {
+.footer-zone {
     grid-area: 7 / 1 / 8 / 8;
     border-top: solid;
 }
 
-.div12 p {
+.footer-zone p {
     text-align: center;
 }

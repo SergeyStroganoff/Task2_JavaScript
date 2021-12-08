@@ -2,7 +2,9 @@ myStatementData.sort(function (a, b) {
     return new Date(a.date.toString()) - new Date(b.date.toString())
 });
 
-myStatementDataGroupedByData = [];
+const tbodyElement = document.querySelector('tbody');
+
+groupedByData = [];
 let data = null;
 let count = 0;
 for (let elem of myStatementData) {
@@ -17,13 +19,13 @@ for (let elem of myStatementData) {
         } else {
             outMoney = elem.amount;
         }
-        myStatementDataGroupedByData[count] = {dat: currentDate, in: inMoney, out: outMoney};
+        groupedByData[count] = {dat: currentDate, in: inMoney, out: outMoney};
         count++;
     } else {
         if (elem.amount > 0) {
-            myStatementDataGroupedByData[count].in += elem.amount;
+            groupedByData[count].in += elem.amount;
         } else {
-            myStatementDataGroupedByData[count].out -= elem.amount;
+            groupedByData[count].out -= elem.amount;
         }
     }
 }
@@ -34,8 +36,7 @@ function changeDisplayStyleElements(elements, displayStyle) {
     }
 }
 
-function makeTable() {
-    let tbod = document.querySelector('tbody');
+function buildTableBodyAllRows() {
     for (let i = 0; i < myStatementData.length; i++) {
         let tr = document.createElement('tr');
         let datetime = new Date(myStatementData[i].date.toString());
@@ -47,49 +48,73 @@ function makeTable() {
         if (myStatementData[i].amount > 0) {
             into = myStatementData[i].amount;
         } else out = myStatementData[i].amount;
-        tr.innerHTML = buildTableString(data, time, type, into, out);
-        tbod.appendChild(tr);
+        tr.innerHTML = buildTableColumns(data, time, type, into, out);
+        tbodyElement.appendChild(tr);
     }
 }
 
-function buildTableString() {
-    let string = "";
+function buildTableColumns() {
+    let htmlString = "";
     for (let i = 0; i < arguments.length; i++) {
-        string += '<td class=row' + i + '>' + arguments[i] + '</td>';
+        let className;
+        switch (i) {
+            case 0: {
+                className = 'data-row';
+                break;
+            }
+            case 1: {
+                className = 'time-row';
+                break;
+            }
+            case 2: {
+                className = 'type-row';
+                break;
+            }
+            case 3: {
+                className = 'arrival-row';
+                break;
+            }
+            case 4: {
+                className = 'spending-row';
+                break;
+            }
+        }
+        htmlString += '<td class=' + className + '>' + arguments[i] + '</td>';
     }
-    return string;
+    return htmlString;
 }
 
 
 function makerGroupedTable() {
-    let tbod = document.querySelector('tbody');
-    for (let i = 0; i < myStatementDataGroupedByData.length; i++) {
+    for (let i = 0; i < groupedByData.length; i++) {
         let tr = document.createElement('tr');
-        let into = myStatementDataGroupedByData[i].in;
-        let out = myStatementDataGroupedByData[i].out;
-        let dat = myStatementDataGroupedByData[i].dat;
-        tr.innerHTML = buildTableString(dat, into, out);
-        tbod.appendChild(tr);
+        let into = groupedByData[i].in;
+        let out = groupedByData[i].out;
+        let dat = groupedByData[i].dat;
+        tr.innerHTML = buildTableColumns(dat, into, out);
+        tbodyElement.appendChild(tr);
     }
 }
 
-makeTable(buildTableString());
+buildTableBodyAllRows(buildTableColumns());
 
 let numberUncheckedCheckbox = 0;
-var numberDisabledCheckbox = -1;
-var typeCheckbox = document.querySelector('input[value="type"]');
-var timeCheckbox = document.querySelector('input[value="time"]');
-var dataCheckbox = document.querySelector('input[value="data"]');
-var arrivalCheckbox = document.querySelector('input[value="arrival"]');
-var spendingCheckbox = document.querySelector('input[value="spending"]');
-var selector = document.getElementById("selector");
-var optionSelectorGroupedByData = document.querySelector('option[value="groupedByData"]');
-var optionSelectorNotGrouped = document.querySelector('option[value="no_grouped"]');
+let numberDisabledCheckbox = -1;
+
+const typeCheckbox = document.querySelector('input[value="type"]');
+const timeCheckbox = document.querySelector('input[value="time"]');
+const dataCheckbox = document.querySelector('input[value="data"]');
+const arrivalCheckbox = document.querySelector('input[value="arrival"]');
+const spendingCheckbox = document.querySelector('input[value="spending"]');
+const selector = document.getElementById("selector");
+const optionSelectorGroupedByData = document.querySelector('option[value="groupedByData"]');
+const optionSelectorNotGrouped = document.querySelector('option[value="no_grouped"]');
 let checkBoxArray = [typeCheckbox, timeCheckbox, dataCheckbox, arrivalCheckbox, spendingCheckbox];
 
 
 function changeElementDisplay(elementArray, checkbox) {
     if (!checkbox.checked) {
+        selector.disabled = true;
         for (let elem of elementArray) {
             elem.style.display = "none";
         }
@@ -107,6 +132,9 @@ function changeElementDisplay(elementArray, checkbox) {
             elem.style.display = "";
         }
         numberUncheckedCheckbox--;
+        if (numberUncheckedCheckbox === 0) {
+            selector.disabled = false;
+        }
         if (numberDisabledCheckbox > -1) {
             checkBoxArray[numberDisabledCheckbox].disabled = false;
             numberDisabledCheckbox = -1;
@@ -122,9 +150,9 @@ function eraseTableBody() {
 }
 
 function transformTable() {
-    let tableRowElements = document.querySelectorAll('.row1');
+    let tableRowElements = document.querySelectorAll('.time-row');
     changeDisplayStyleElements(tableRowElements, "none");
-    tableRowElements = document.querySelectorAll('.row2');
+    tableRowElements = document.querySelectorAll('.type-row');
     changeDisplayStyleElements(tableRowElements, "none");
     eraseTableBody();
     makerGroupedTable();
@@ -132,12 +160,12 @@ function transformTable() {
 }
 
 function makeFullTable() {
-    let tableRowElements = document.querySelectorAll('.row1');
+    let tableRowElements = document.querySelectorAll('.time-row');
     changeDisplayStyleElements(tableRowElements, "");
-    tableRowElements = document.querySelectorAll('.row2');
+    tableRowElements = document.querySelectorAll('.type-row');
     changeDisplayStyleElements(tableRowElements, "");
     eraseTableBody();
-    makeTable();
+    buildTableBodyAllRows();
     checkboxSwitchOff(false);
 }
 
@@ -149,27 +177,27 @@ function checkboxSwitchOff(bool) {
 
 
 dataCheckbox.addEventListener('change', () => {
-    let elements = document.querySelectorAll('.row0');
+    let elements = document.querySelectorAll('.data-row');
     changeElementDisplay(elements, dataCheckbox);
 });
 
 timeCheckbox.addEventListener('change', () => {
-    let elements = document.querySelectorAll('.row1');
+    let elements = document.querySelectorAll('.time-row');
     changeElementDisplay(elements, timeCheckbox);
 });
 
 typeCheckbox.addEventListener('change', () => {
-    let elements = document.querySelectorAll('.row2');
+    let elements = document.querySelectorAll('.type-row');
     changeElementDisplay(elements, typeCheckbox);
 });
 
 arrivalCheckbox.addEventListener('change', () => {
-    let elements = document.querySelectorAll('.row3');
+    let elements = document.querySelectorAll('.arrival-row');
     changeElementDisplay(elements, arrivalCheckbox);
 });
 
 spendingCheckbox.addEventListener('change', () => {
-    let elements = document.querySelectorAll('.row4');
+    let elements = document.querySelectorAll('.spending-row');
     changeElementDisplay(elements, spendingCheckbox);
 });
 

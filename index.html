@@ -11,41 +11,41 @@
 <body>
 
 <div class="document-grid">
-    <div class="div1">
+    <div class="div-main-name">
         <p>Моя выписка</p>
     </div>
-    <div class="div2">
+    <div class="div-avatar">
         <img src="images/avatar_small.png" alt="Avatar" title="Sergey Stroganoff">
     </div>
-    <div class="div2-1">
+    <div class="div-avatar-name">
         <p>Sergey Stroganoff</p>
     </div>
 
-    <div class="div3">
-        <input type="checkbox" class="data-checkbox" id="checkBox1" name="data" value="data" checked="checked">
-        <label for=checkBox1>Дата</label>
+    <div class="div-data-checkbox">
+        <input type="checkbox" class="data-checkbox" id="checkBox-data-id" name="data" value="data" checked="checked">
+        <label for=checkBox-data-id>Дата</label>
     </div>
-    <div class="div4">
-        <input type="checkbox" class="time-checkbox" id="checkBox2" name="time" value="time" checked="checked">
-        <label for=checkBox2>Время</label>
+    <div class="div-time-checkbox">
+        <input type="checkbox" class="time-checkbox" id="checkBox-time-id" name="time" value="time" checked="checked">
+        <label for=checkBox-time-id>Время</label>
     </div>
-    <div class="div5">
-        <input type="checkbox" class="type-checkbox" id="checkBox3" name="type" value="type" checked="checked">
-        <label for=checkBox3>Тип</label>
+    <div class="div-type-checkbox">
+        <input type="checkbox" class="type-checkbox" id="checkBox-type-id" name="type" value="type" checked="checked">
+        <label for=checkBox-type-id>Тип</label>
     </div>
-    <div class="div6">
-        <input type="checkbox" class="arrival-checkbox" id="checkBox4" name="arrival" value="arrival" checked="checked">
-        <label for=checkBox4>Приход</label>
+    <div class="div-arrival-checkbox">
+        <input type="checkbox" class="arrival-checkbox" id="checkBox-arrival-id" name="arrival" value="arrival" checked="checked">
+        <label for=checkBox-arrival-id>Приход</label>
     </div>
-    <div class="div7">
-        <input type="checkbox" class="spending-checkbox" id="checkBox5" name="spending" value="spending"
+    <div class="div-spending-checkbox">
+        <input type="checkbox" class="spending-checkbox" id="checkBox-spending-id" name="spending" value="spending"
                checked="checked">
-        <label for=checkBox5>Расход</label>
+        <label for=checkBox-spending-id>Расход</label>
     </div>
-    <div class="div8">
+    <div class="div-grouping-label">
         <p>Группировка</p>
     </div>
-    <div class="div9">
+    <div class="div-grouping-menu">
         <label for="selector"></label>
         <select id="selector">
             <option value="no_grouped">Без группировки</option>
@@ -53,17 +53,16 @@
         </select>
     </div>
 
-
-    <div class="div10">
+    <div class="table-zone">
         <div class="table">
             <table>
-                <thead>
+                <thead class="table-header">
                 <tr>
-                    <th class="row0">Дата</th>
-                    <th class="row1">Время</th>
-                    <th class="row2">Тип</th>
-                    <th class="row3">Приход</th>
-                    <th class="row4">Расход</th>
+                    <th class="data-row">Дата</th>
+                    <th class="time-row">Время</th>
+                    <th class="type-row">Тип</th>
+                    <th class="arrival-row">Приход</th>
+                    <th class="spending-row">Расход</th>
                 </tr>
                 </thead>
             </table>
@@ -74,10 +73,9 @@
                 </table>
             </div>
         </div>
-
     </div>
-    <div class="div11"></div>
-    <div class="div12">
+    <div class="down-empty-space"></div>
+    <div class="footer-zone">
         <p>@ Мой Банк</p>
     </div>
 </div>
