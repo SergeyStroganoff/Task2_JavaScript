@@ -1,0 +1,38 @@
+
+.table-body {
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    overflow:auto;
+}
+.table table {
+    width: 100%;
+    border: 1px solid #eee;
+    border-collapse: collapse;
+    table-layout: fixed;
+    overflow:auto;
+    height: 435px;
+    display: inline-block;
+}
+.table thead th {
+    width: 400px;
+    font-weight: normal;
+    text-align: left;
+    padding: 10px 15px;
+    background:#ccd1d9;
+    font-size: 16px;
+    table-layout: fixed;
+    position: sticky;
+    top: 0;
+}
+.table tbody td {
+    text-align: left;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 10px 15px;
+    font-size: 16px;
+    vertical-align: top;
+}
+.table tbody tr:nth-child(even){
+    background: #f3f3f3;
+}
+

@@ -1,0 +1,143 @@
+.document-grid {
+    display: grid;
+    grid-template-columns: 30px repeat(5, 1fr) 30px;
+    grid-template-rows: 2fr 20px repeat(2, 1fr) 6fr 20px 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    border-style: solid;
+    font: 24px 'Fira Sans', sans-serif;
+}
+
+.div-main-name {
+    grid-area: 1 / 1 / 2 / 5;
+    border-bottom-style: solid;
+    text-align: left;
+}
+
+.div-main-name p {
+    margin-left: 5%;
+    font: 34px 'Fira Sans', sans-serif;
+}
+
+/* start line, start column, end row line, end column number line */
+.div-avatar {
+    grid-area: 1 / 5 / 2 / 6;
+    border-bottom-style: solid;
+    text-align: right;
+}
+
+.div-avatar-name {
+    grid-area: 1 / 6 / 2 / 8;
+    border-bottom-style: solid;
+    text-align: left;
+}
+
+.div-avatar-name p {
+    margin-left: 5%;
+}
+
+
+.div-avatar p {
+    margin-left: 5%;
+    display: inline-block;
+}
+
+.div-avatar img {
+    display: inline-flex;
+    margin-left: 5%;
+}
+
+.div-data-checkbox {
+    grid-area: 3 / 2 / 4 / 3;
+    text-align: center;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-top-style: solid;
+}
+
+.div-data-checkbox :first-child {
+    margin-top: 5%;
+}
+
+.div-time-checkbox {
+    grid-area: 3 / 3 / 4 / 4;
+    text-align: center;
+    border-bottom-style: solid;
+    border-top-style: solid;
+}
+
+.div-time-checkbox :first-child {
+    margin-top: 5%;
+}
+
+.div-type-checkbox {
+    grid-area: 3 / 4 / 4 / 5;
+    text-align: center;
+    border-bottom-style: solid;
+    border-top-style: solid;
+}
+
+.div-type-checkbox :first-child {
+    margin-top: 5%;
+}
+
+.div-arrival-checkbox {
+    grid-area: 3 / 5 / 4 / 6;
+    text-align: center;
+    border-bottom-style: solid;
+    border-top-style: solid;
+}
+
+.div-arrival-checkbox :first-child {
+    margin-top: 5%;
+}
+
+.div-spending-checkbox {
+    grid-area: 3 / 6 / 4 / 7;
+    text-align: center;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-top-style: solid;
+}
+
+.div-spending-checkbox :first-child {
+    margin-top: 5%;
+}
+
+.div-grouping-label {
+    grid-area: 4 / 2 / 5 / 3;
+}
+
+
+.div-grouping-menu {
+    grid-area: 4 / 3 / 5 / 4;
+}
+
+.div-grouping-menu #selector {
+    margin-top: 5%;
+    border: solid 1px #517B97;
+    outline: 0;
+    width: auto;
+    height: auto;
+    text-align: left;
+    font-size: large;
+}
+
+.table-zone {
+    grid-area: 5 / 2 / 6 / 7;
+    border: solid;
+    height: 435px;
+}
+
+.down-empty-space {
+    grid-area: 7 / 1 / 8 / 2;
+}
+
+.footer-zone {
+    grid-area: 7 / 1 / 8 / 8;
+    border-top: solid;
+}
+
+.footer-zone p {
+    text-align: center;
+}

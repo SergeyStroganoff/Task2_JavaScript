@@ -1,10 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Sergey Stroganoff">
+    <meta name="description" content="Бланк банковского отчета">
     <title>DBO</title>
+    <link rel="stylesheet" href="bill.css">
+    <link rel="stylesheet" href="table.css">
 </head>
 <body>
 
+<div class="document-grid">
+    <div class="div-main-name">
+        <p>Моя выписка</p>
+    </div>
+    <div class="div-avatar">
+        <img src="images/avatar_small.png" alt="Avatar" title="Sergey Stroganoff">
+    </div>
+    <div class="div-avatar-name">
+        <p>Sergey Stroganoff</p>
+    </div>
+
+    <div class="div-data-checkbox">
+        <input type="checkbox" class="data-checkbox" id="checkBox-data-id" name="data" value="data" checked="checked">
+        <label for=checkBox-data-id>Дата</label>
+    </div>
+    <div class="div-time-checkbox">
+        <input type="checkbox" class="time-checkbox" id="checkBox-time-id" name="time" value="time" checked="checked">
+        <label for=checkBox-time-id>Время</label>
+    </div>
+    <div class="div-type-checkbox">
+        <input type="checkbox" class="type-checkbox" id="checkBox-type-id" name="type" value="type" checked="checked">
+        <label for=checkBox-type-id>Тип</label>
+    </div>
+    <div class="div-arrival-checkbox">
+        <input type="checkbox" class="arrival-checkbox" id="checkBox-arrival-id" name="arrival" value="arrival"
+               checked="checked">
+        <label for=checkBox-arrival-id>Приход</label>
+    </div>
+    <div class="div-spending-checkbox">
+        <input type="checkbox" class="spending-checkbox" id="checkBox-spending-id" name="spending" value="spending"
+               checked="checked">
+        <label for=checkBox-spending-id>Расход</label>
+    </div>
+    <div class="div-grouping-label">
+        <p>Группировка</p>
+    </div>
+    <div class="div-grouping-menu">
+        <label for="selector"></label>
+        <select id="selector">
+            <option id="no_grouped" value="no_grouped">Без группировки</option>
+            <option id="grouped" value="groupedByData">По дате</option>
+        </select>
+    </div>
+
+    <div class="table-zone">
+        <div class="table">
+            <table>
+                <thead class="table-header">
+                <tr>
+                    <th class="data-row">Дата</th>
+                    <th class="time-row">Время</th>
+                    <th class="type-row">Тип</th>
+                    <th class="arrival-row">Приход</th>
+                    <th class="spending-row">Расход</th>
+                </tr>
+                </thead>
+                <tbody class="table-body">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="down-empty-space"></div>
+    <div class="footer-zone">
+        <p>@ Мой Банк</p>
+    </div>
+</div>
+<script src=my-statement-data.js></script>
+<script src=main.js></script>
 </body>
 </html>
+
